@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // see more https://eduardoboucas.github.io/include-media/
+  @include media('<tablet') {
+    background: rebeccapurple;
+  }
+}

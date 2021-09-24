@@ -1,0 +1,8 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // TODO: JUST FOR EXAMPLE. REMOVE LATER
+  @include clearfix();
+}
