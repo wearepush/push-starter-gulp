@@ -28,10 +28,14 @@ const watcher = (done) => {
     'change',
     series(
       parallel(tasks.css.cssMain, tasks.css.cssVendors),
+      tasks.inject,
       browserSync.reload
     )
   );
-  watch(paths.watch.js).on('change', series(tasks.scripts, browserSync.reload));
+  watch(paths.watch.js).on(
+    'change',
+    series(tasks.scripts, tasks.inject, browserSync.reload)
+  );
   watch(paths.watch.images, tasks.images);
   watch(paths.watch.fonts, tasks.fonts);
   done();
