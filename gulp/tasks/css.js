@@ -8,7 +8,6 @@ const cssnano = require('cssnano');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const mode = require('gulp-mode')();
-
 const paths = require('../paths');
 
 const postCssPlugins = [autoprefixer(), cssnano()];

@@ -7,7 +7,12 @@ const webpackConfig = {
   mode: process.env.mode || 'production',
   devtool: process.env.mode === 'development' && 'eval',
   output: {
-    filename: 'app.js',
+    filename: '[name].bundle.js',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   module: {
     rules: [
