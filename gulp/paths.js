@@ -19,4 +19,9 @@ module.exports = {
     favicons: 'build/favicons',
   },
   clean: 'build/',
+
+  cssVendors: [
+    // EXAMPLE
+    // './node_modules/swiper/swiper-bundle.min.css'
+  ],
 };

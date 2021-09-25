@@ -30,15 +30,14 @@ const cssMain = () => {
 };
 
 const cssVendors = () => {
-  return (
-    gulp
-      // EXAMPLE
-      .src(['./node_modules/swiper/swiper-bundle.min.css'], {
-        allowEmpty: true,
-      })
-      .pipe(concat('vendors.css'))
-      .pipe(gulp.dest(paths.build.css))
-  );
+  if (!paths.cssVendors.length) {
+    return gulp.src('.', { allowEmpty: true });
+  }
+
+  return gulp
+    .src(paths.cssVendors)
+    .pipe(concat('vendors.css'))
+    .pipe(gulp.dest(paths.build.css));
 };
 
 module.exports = { cssMain, cssVendors };
