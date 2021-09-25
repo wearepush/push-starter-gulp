@@ -31,13 +31,7 @@ const watcher = (done) => {
       browserSync.reload
     )
   );
-  watch(paths.src.js).on(
-    'change',
-    series(
-      parallel(tasks.scripts.scriptsMain, tasks.scripts.scriptsVendors),
-      browserSync.reload
-    )
-  );
+  watch(paths.src.jsWatch).on('change', series(tasks.scripts, browserSync.reload));
   watch(paths.src.images, tasks.images);
   watch(paths.src.fonts, tasks.fonts);
 
@@ -52,8 +46,7 @@ exports.dev = series(
     tasks.css.cssMain,
     tasks.css.cssVendors,
     tasks.fonts,
-    tasks.scripts.scriptsMain,
-    tasks.scripts.scriptsVendors,
+    tasks.scripts,
     tasks.html
   ),
   watcher,
@@ -68,8 +61,7 @@ exports.build = series(
     tasks.css.cssMain,
     tasks.css.cssVendors,
     tasks.fonts,
-    tasks.scripts.scriptsMain,
-    tasks.scripts.scriptsVendors,
+    tasks.scripts,
     tasks.html
   )
 );

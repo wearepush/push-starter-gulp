@@ -1,29 +1,42 @@
 const gulp = require('gulp');
-const plumber = require('gulp-plumber');
-const babel = require('gulp-babel');
+const webpack = require('webpack-stream');
 const terser = require('gulp-terser');
-const concat = require('gulp-concat');
-const mode = require('gulp-mode')();
 const paths = require('../paths');
 
-const scriptsMain = () => {
+const webpackConfig = {
+  mode: process.env.mode || 'production',
+  devtool: process.env.mode === 'development' && 'eval',
+  output: {
+    filename: 'app.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: [
+              '@babel/plugin-proposal-export-default-from',
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-optional-chaining',
+              '@babel/plugin-proposal-nullish-coalescing-operator',
+            ],
+          },
+        },
+      },
+    ],
+  },
+};
+
+const scripts = () => {
   return gulp
     .src(paths.src.js)
-    .pipe(plumber())
-    .pipe(babel())
-    .pipe(concat('scripts.js'))
-    .pipe(mode.production(terser()))
+    .pipe(webpack(webpackConfig))
+    .pipe(terser())
     .pipe(gulp.dest(paths.build.js));
 };
 
-const scriptsVendors = () => {
-  return (
-    gulp
-      // EXAMPLE
-      .src(['./node_modules/swiper/swiper-bundle.min.js'], { allowEmpty: true })
-      .pipe(concat('vendors.js'))
-      .pipe(gulp.dest(paths.build.js))
-  );
-};
-
-module.exports = { scriptsMain, scriptsVendors };
+module.exports = scripts;
