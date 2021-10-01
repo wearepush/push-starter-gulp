@@ -28,9 +28,4 @@ module.exports = {
     js: 'build/assets/js/*.js',
   },
   clean: 'build/',
-
-  cssVendors: [
-    // EXAMPLE
-    // './node_modules/swiper/swiper-bundle.min.css'
-  ],
 };

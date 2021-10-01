@@ -8,7 +8,9 @@ const cssnano = require('cssnano');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const mode = require('gulp-mode')();
+
 const paths = require('../paths');
+const cssvendors = require('../cssvendors');
 
 const postCssPlugins = [autoprefixer(), cssnano()];
 
@@ -29,12 +31,18 @@ const cssMain = () => {
 };
 
 const cssVendors = () => {
-  if (!paths.cssVendors.length) {
+  if (!cssvendors.length) {
     return gulp.src('.', { allowEmpty: true });
   }
 
   return gulp
-    .src(paths.cssVendors)
+    .src(cssvendors)
+    .pipe(
+      sass({
+        sourceMap: false,
+        outputStyle: 'compressed',
+      })
+    )
     .pipe(concat('vendors.css'))
     .pipe(gulp.dest(paths.build.css));
 };

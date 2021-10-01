@@ -20,7 +20,7 @@ npm run build
 
 ## Usage
 ### Adding css vendors
-To add css vendors update `cssVendors` in `gulp\paths.js` and restart dev server
+To add css vendors update `cssvendors.js` in `/gulp` folder and restart dev server
 
 ## Components:
 [@include-media](https://eduardoboucas.github.io/include-media/)
