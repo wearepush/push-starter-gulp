@@ -1,26 +1,26 @@
 module.exports = {
   src: {
+    base: 'src',
     html: 'src/templates/*.html',
     css: 'src/scss/index.scss',
     js: 'src/js/app.js',
     images: 'src/images/**/*',
-    fonts: 'src/fonts/**/*',
     favicons: 'src/favicons/**/*',
+    copy: ['src/fonts/**/*'],
   },
   watch: {
     html: 'src/templates/**/*.html',
     css: 'src/scss/**/*.scss',
     js: 'src/js/**/*.js',
     images: 'src/images/**/*',
-    fonts: 'src/fonts/**/*',
   },
   build: {
     html: 'build',
     css: 'build/assets/css',
     js: 'build/assets/js',
     images: 'build/assets/images',
-    fonts: 'build/assets/fonts',
     favicons: 'build/favicons',
+    copy: 'build/assets',
   },
   inject: {
     html: 'build/*.html',

@@ -26,18 +26,10 @@ const watcher = (done) => {
   );
   watch(paths.watch.css).on(
     'change',
-    series(
-      parallel(tasks.css.cssMain, tasks.css.cssVendors),
-      tasks.inject,
-      browserSync.reload
-    )
+    series(parallel(tasks.css.cssMain, tasks.css.cssVendors), tasks.inject, browserSync.reload)
   );
-  watch(paths.watch.js).on(
-    'change',
-    series(tasks.scripts, tasks.inject, browserSync.reload)
-  );
+  watch(paths.watch.js).on('change', series(tasks.scripts, tasks.inject, browserSync.reload));
   watch(paths.watch.images, tasks.images);
-  watch(paths.watch.fonts, tasks.fonts);
   done();
 };
 
@@ -47,7 +39,7 @@ exports.dev = series(
   parallel(
     tasks.css.cssMain,
     tasks.css.cssVendors,
-    tasks.fonts,
+    tasks.copy,
     tasks.favicons,
     tasks.scripts,
     tasks.html.htmlMain
@@ -63,7 +55,7 @@ exports.build = series(
   parallel(
     tasks.css.cssMain,
     tasks.css.cssVendors,
-    tasks.fonts,
+    tasks.copy,
     tasks.favicons,
     tasks.scripts,
     tasks.html.htmlMain
