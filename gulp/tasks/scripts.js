@@ -4,8 +4,8 @@ const terser = require('gulp-terser');
 const paths = require('../paths');
 
 const webpackConfig = {
-  mode: process.env.mode || 'production',
-  devtool: process.env.mode === 'development' && 'eval',
+  mode: process.env.MODE || 'production',
+  devtool: process.env.MODE === 'development' && 'eval',
   output: {
     filename: '[name].bundle.js',
   },
