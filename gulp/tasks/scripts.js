@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
-const terser = require('gulp-terser');
 const paths = require('../paths');
 
 const webpackConfig = {
@@ -40,7 +39,6 @@ const scripts = () => {
   return gulp
     .src(paths.src.js)
     .pipe(webpack(webpackConfig))
-    .pipe(terser())
     .pipe(gulp.dest(paths.build.js));
 };
 

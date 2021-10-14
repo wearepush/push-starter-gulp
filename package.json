@@ -38,7 +38,6 @@
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-terser": "^2.0.1",
     "husky": "^7.0.2",
     "postcss": "^8.3.7",
     "prettier": "^2.4.1",

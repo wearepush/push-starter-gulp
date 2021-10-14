@@ -22,11 +22,11 @@ const serve = () => {
 const watcher = (done) => {
   watch(paths.watch.html).on(
     'change',
-    series(tasks.html.htmlMain, tasks.inject, browserSync.reload)
+    series(tasks.html, tasks.inject, browserSync.reload)
   );
   watch(paths.watch.css).on(
     'change',
-    series(parallel(tasks.css.cssMain, tasks.css.cssVendors), tasks.inject, browserSync.reload)
+    series(parallel(tasks.css, tasks.cssVendors), tasks.inject, browserSync.reload)
   );
   watch(paths.watch.js).on('change', series(tasks.scripts, tasks.inject, browserSync.reload));
   watch(paths.watch.images, tasks.images);
@@ -37,12 +37,12 @@ exports.dev = series(
   tasks.clean,
   tasks.images,
   parallel(
-    tasks.css.cssMain,
-    tasks.css.cssVendors,
+    tasks.css,
+    tasks.cssVendors,
     tasks.copy,
     tasks.favicons,
     tasks.scripts,
-    tasks.html.htmlMain
+    tasks.html
   ),
   tasks.inject,
   watcher,
@@ -53,13 +53,13 @@ exports.build = series(
   tasks.clean,
   tasks.images,
   parallel(
-    tasks.css.cssMain,
-    tasks.css.cssVendors,
+    tasks.css,
+    tasks.cssVendors,
     tasks.copy,
     tasks.favicons,
     tasks.scripts,
-    tasks.html.htmlMain
+    tasks.html
   ),
   tasks.inject,
-  tasks.html.htmlAfterBuild
+  tasks.htmlAfterBuild
 );
