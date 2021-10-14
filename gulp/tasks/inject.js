@@ -3,8 +3,9 @@ const injectLib = require('gulp-inject');
 const paths = require('../paths');
 
 const inject = () => {
-  const sources = gulp.src([paths.inject.css, paths.inject.js], {
+  const sources = gulp.src([...paths.inject.css, ...paths.inject.js], {
     read: false,
+    allowEmpty: true,
   });
 
   return gulp

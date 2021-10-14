@@ -24,8 +24,8 @@ module.exports = {
   },
   inject: {
     html: 'build/*.html',
-    css: 'build/assets/css/*.css',
-    js: 'build/assets/js/*.js',
+    css: ['build/assets/css/vendors.css', 'build/assets/css/styles.css'],
+    js: ['build/assets/js/*.js'],
   },
   clean: 'build/',
 };
