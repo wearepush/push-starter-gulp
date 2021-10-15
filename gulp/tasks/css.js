@@ -9,6 +9,8 @@ const rename = require('gulp-rename');
 const mode = require('gulp-mode')();
 
 const paths = require('../paths');
+const { IS_DEV } = require('../utils/constants');
+const getHash = require('../utils/getHash');
 
 const postCssPlugins = [autoprefixer(), cssnano()];
 
@@ -25,7 +27,7 @@ const css = () => {
     )
     .pipe(postcss(postCssPlugins))
     .pipe(mode.development(sourcemaps.write()))
-    .pipe(rename('styles.css'))
+    .pipe(rename(IS_DEV ? 'styles.css' : `styles.${getHash()}.css`))
     .pipe(gulp.dest(paths.build.css));
 };
 

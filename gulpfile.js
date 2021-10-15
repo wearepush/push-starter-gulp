@@ -61,5 +61,4 @@ exports.build = series(
     tasks.html
   ),
   tasks.inject,
-  tasks.htmlAfterBuild
 );

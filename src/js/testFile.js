@@ -1,3 +1,1 @@
-export default {
-  test: true,
-};
+export default 'hello world';
