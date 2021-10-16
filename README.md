@@ -20,10 +20,10 @@ npm run build
 
 ## Usage
 ### Adding css vendors
-To add css vendors update `cssVendors` in `/gulp/paths.src` and restart dev server
+Update `cssVendors` in `/gulp/paths.src` to add vendor styles and restart dev server
 
 ### Adding files/folders to copy into build/assets folder
-To add files or folders to copy into build/asssets folder update `copy` in `/gulp/paths.src` and restart dev server
+Update `copy` in `/gulp/paths.src` to add files or folders to copy into build/asssets folder and restart dev server
 
 ## Components:
 [@include-media](https://eduardoboucas.github.io/include-media/)
