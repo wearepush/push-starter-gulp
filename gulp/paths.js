@@ -6,7 +6,14 @@ module.exports = {
     js: 'src/js/app.js',
     images: 'src/images/**/*',
     favicons: 'src/favicons/**/*',
+
+    // paths to copy files/folders
     copy: ['src/fonts/**/*'],
+    // paths to include css files into vendors.css
+    cssVendors: [
+      // EXAMPLE
+      // './node_modules/swiper/swiper-bundle.min.css',
+    ],
   },
   watch: {
     html: 'src/templates/**/*.html',

@@ -3,17 +3,16 @@ const sass = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 
 const paths = require('../paths');
-const cssvendors = require('../cssvendors');
 const { IS_DEV } = require('../utils/constants');
 const getHash = require('../utils/getHash');
 
 const cssVendors = () => {
-  if (!cssvendors.length) {
+  if (!paths.src.cssVendors.length) {
     return gulp.src('.', { allowEmpty: true });
   }
 
   return gulp
-    .src(cssvendors)
+    .src(paths.src.cssVendors)
     .pipe(
       sass({
         sourceMap: false,
