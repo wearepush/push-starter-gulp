@@ -20,30 +20,20 @@ const serve = () => {
 };
 
 const watcher = (done) => {
-  watch(paths.watch.html).on(
-    'change',
-    series(tasks.html, tasks.inject, browserSync.reload)
-  );
+  watch(paths.watch.html).on('all', series(tasks.html, tasks.inject, browserSync.reload));
   watch(paths.watch.css).on(
-    'change',
+    'all',
     series(parallel(tasks.css, tasks.cssVendors), tasks.inject, browserSync.reload)
   );
-  watch(paths.watch.js).on('change', series(tasks.scripts, tasks.inject, browserSync.reload));
-  watch(paths.watch.images, tasks.images);
+  watch(paths.watch.js).on('all', series(tasks.scripts, tasks.inject, browserSync.reload));
+  watch(paths.watch.images).on('all', series(tasks.images, browserSync.reload));
   done();
 };
 
 exports.dev = series(
   tasks.clean,
   tasks.images,
-  parallel(
-    tasks.css,
-    tasks.cssVendors,
-    tasks.copy,
-    tasks.favicons,
-    tasks.scripts,
-    tasks.html
-  ),
+  parallel(tasks.css, tasks.cssVendors, tasks.copy, tasks.favicons, tasks.scripts, tasks.html),
   tasks.inject,
   watcher,
   serve
@@ -52,13 +42,6 @@ exports.dev = series(
 exports.build = series(
   tasks.clean,
   tasks.images,
-  parallel(
-    tasks.css,
-    tasks.cssVendors,
-    tasks.copy,
-    tasks.favicons,
-    tasks.scripts,
-    tasks.html
-  ),
-  tasks.inject,
+  parallel(tasks.css, tasks.cssVendors, tasks.copy, tasks.favicons, tasks.scripts, tasks.html),
+  tasks.inject
 );
