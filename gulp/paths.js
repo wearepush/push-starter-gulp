@@ -3,7 +3,7 @@ module.exports = {
     base: 'src',
     html: 'src/templates/*.html',
     css: 'src/scss/index.scss',
-    js: 'src/js/app.js',
+    js: 'src/js/index.js',
     images: 'src/images/**/*',
     favicons: 'src/favicons/**/*',
 

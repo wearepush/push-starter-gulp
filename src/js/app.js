@@ -1,3 +1,1 @@
-import test from './testFile';
-
-console.log(test);
+console.log('hello world');
