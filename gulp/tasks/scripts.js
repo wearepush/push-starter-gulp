@@ -35,6 +35,9 @@ const webpackConfig = {
       },
     ],
   },
+  experiments: {
+    topLevelAwait: true,
+  },
 };
 
 const scripts = () => {
