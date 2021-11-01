@@ -4,5 +4,17 @@
   justify-content: center;
 
   // TODO: EXAMPLE. REMOVE
-  @include clearfix();
+  // @include clearfix();
+
+  // TODO: EXAMPLE. REMOVE
+  // see more https://eduardoboucas.github.io/include-media/
+  // @include media('retina2x', '>desktop') {
+  //   width: 100%;
+  // }
+  // @include media('>desktop', '<=1150px') {
+  //   font-size: 4rem;
+  // }
+  // @include media('>phone', '<=tablet') {
+  //   width: 50%;
+  // }
 }
