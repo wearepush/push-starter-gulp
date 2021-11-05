@@ -1,13 +1,10 @@
-# Webstorm
-.idea/
-
 # OSX
 .DS_Store
 .AppleDouble
 .LSOverride
 
 # Node
-node_modules/
+node_modules
 npm-debug.log
 
 *.iml
@@ -17,18 +14,21 @@ npm-debug.log
 .env
 
 # Dist
-build/
+build
 public/assets
 
 # Sublime
 *.sublime-workspace
 *.sublime-project
 
-# Tests
-coverage/
+# Webstorm
+.idea
 
 # VS Code
-.history/
+.history
+
+# Tests
+coverage
 
 # Husky
-.husky/
+.husky
