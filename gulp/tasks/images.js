@@ -5,7 +5,7 @@ const paths = require('../paths');
 
 const imageMinConfig = {
   svgo: {
-    plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+    plugins: [{ removeViewBox: false }],
   },
 };
 
