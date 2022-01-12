@@ -21,7 +21,7 @@ const css = () => {
     .pipe(mode.development(sourcemaps.init()))
     .pipe(
       sass({
-        sourceMap: true,
+        sourceMap: IS_DEV,
         outputStyle: 'compressed',
       }).on('error', sass.logError)
     )
