@@ -9,7 +9,7 @@ module.exports = {
 
     // paths to copy files/folders
     copy: ['src/fonts/**/*'],
-    // paths to include css files into vendors.css
+    // paths to include (s)css files into vendors.css
     cssVendors: [
       // EXAMPLE
       // './node_modules/swiper/swiper-bundle.min.css',
