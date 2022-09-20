@@ -1,3 +1,5 @@
+@use '../../helpers' as *;
+
 .header {
   display: flex;
   align-items: center;
@@ -5,7 +7,8 @@
 
   // TODO: EXAMPLE. REMOVE
   // see more https://eduardoboucas.github.io/include-media/
-  // @include media('<tablet') {
-  //   background: rebeccapurple;
-  // }
+  @include media('<=desktop') {
+    background: rebeccapurple;
+    color: #fff;
+  }
 }

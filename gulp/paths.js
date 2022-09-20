@@ -2,7 +2,7 @@ module.exports = {
   src: {
     base: 'src',
     html: 'src/templates/*.html',
-    css: 'src/scss/index.scss',
+    css: 'src/scss/global/index.scss',
     js: 'src/js/index.js',
     images: 'src/images/**/*',
     favicons: 'src/favicons/**/*',

@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "cross-env PORT=8080 MODE=development gulp dev --development",
     "build": "cross-env MODE=production gulp build --production",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build"
   },
   "license": "MIT",
   "devDependencies": {
@@ -37,11 +36,13 @@
     "postcss": "^8.4.14",
     "prettier": "2.5.1",
     "require-dir": "^1.2.0",
-    "sass": "^1.44.0",
+    "sass": "^1.54.9",
     "webpack": "^5.65.0",
     "webpack-stream": "^7.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "include-media": "^1.4.10"
+  },
   "engines": {
     "node": "^14"
   }
