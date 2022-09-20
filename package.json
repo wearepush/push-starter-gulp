@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "cross-env PORT=8080 MODE=development gulp dev --development",
-    "build": "gulp build --production",
+    "build": "cross-env MODE=production gulp build --production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
