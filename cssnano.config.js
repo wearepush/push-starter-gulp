@@ -3,7 +3,6 @@ module.exports = {
     require('cssnano-preset-default'),
     {
       cssDeclarationSorter: false,
-      convertValues: false,
       mergeIdents: false,
       mergeRules: false,
       minifyGradients: false,
