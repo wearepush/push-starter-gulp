@@ -4,8 +4,9 @@ module.exports = {
     {
       cssDeclarationSorter: false,
       convertValues: false,
+      mergeIdents: false,
+      mergeRules: false,
       minifyGradients: false,
-      normalizePositions: false,
       normalizeTimingFunctions: false,
       normalizeWhitespace: false,
       svgo: false,
